@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheButton</title>
-    <link rel="style.css" href="style.css">
 </head>
 <body>
+    <script>document.cookie</script>
     <?php
     echo('<input type="button" name="button" value="Press Me">');    
     ?>
