@@ -13,11 +13,14 @@
     <?php
     //echo the button
     echo('<input type="button" name="button" value="Press Me">'); 
-
+    //Set variables
+    $currentpoints=0;
+    $maxpoints=0;
+    $resets=0;
     //set cookies
-    setcookie("currentpoints", string $value = "187", array $options = []): bool   
-    // setcookie(string $maxpoints, string $value = "150", array $options = []): bool   
-    // setcookie(string $resets, string $value = "7", array $options = []): bool   
+    setcookie("currentpoints", $currentpoints); 
+    setcookie("maxpoints", string $maxpoints);   
+    setcookie("resets", string $resets);
     ?>
 </body>
 </html>
