@@ -24,6 +24,7 @@
             } else {
                 modalLeaderboard.style.display = "block";
             }
+        open != open;
         }
     </script>
     <?php
