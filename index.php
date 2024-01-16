@@ -9,14 +9,21 @@
     <style>
         <?php include "style.css"; ?>
     </style>
-    
+    <!-- -->
+
+    <!--Scripts-->
+    <script>
+        function showLeaderboard() {
+            
+        }
+    </script>
     <?php
     //echo the button
     //Main Button
     echo('<input type="button" name="button" value="Press Me">'); 
 
     //Leaderboard
-    echo('<input type="button" name="leaderboard" value="Push to Leaderboard">'); 
+    echo('<input type="button" name="leaderboard" value="Leaderboard">'); 
     //Set variables
     $currentpoints=0;
     $maxpoints=0;
