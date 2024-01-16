@@ -5,7 +5,7 @@
     <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheButton</title>
+    <title>The Button</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="byuntear-sad.ico">
     <!-- Styles -->
@@ -82,7 +82,7 @@
     echo '<p class="scoreboard" id="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;<br>Resets: ' . $resets . '</p>';
     // Echo the button and leaderboard
     // Main Button
-    echo '<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">';
+    echo '<input class="input" type="button" id="ClickButton" name="button" size="5" value="Press Me" onClick="Click()">';
     // Leaderboard
     echo '<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">';
     echo '<div class="modalLeaderboard" id="modalLeaderboard">';
