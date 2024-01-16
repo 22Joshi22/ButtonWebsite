@@ -15,12 +15,12 @@
     <!--Scripts-->
     <script>
         function showLeaderboard() {
-            var modalLeaderboard = document.getElemtById("modalLeaderboard");
+            var modalLeaderboard = document.getElementById("modalLeaderboard");
             modalLeaderboard.style.display= "block";
         }
 
         function closeLeaderboard() {
-            var modalLeaderboard = document.getElemtById("modalLeaderboard");
+            var modalLeaderboard = document.getElementById("modalLeaderboard");
             modalLeaderboard.style.display= "none";
         }
     </script>
