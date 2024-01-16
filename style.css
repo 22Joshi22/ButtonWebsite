@@ -2,7 +2,12 @@ html{
   background-image: url("bg.png") !important;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  baclground-position: center center;
+  background-position: center center;
   background-size: cover;
   background-color: transparent;
+}
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

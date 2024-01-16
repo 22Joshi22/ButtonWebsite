@@ -12,7 +12,7 @@
     
     <?php
     //echo the button
-    echo('<input type="button" name="button" value="Press Me">'); 
+    echo('<input class="button" type="button" name="button" value="Press Me">'); 
     //Set variables
     $currentpoints=0;
     $maxpoints=0;
