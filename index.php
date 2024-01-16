@@ -66,12 +66,12 @@
     <?php
     // Echo the button and leaderboard
     // Main Button
-    echo ('<input class="button" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
+    echo ('<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
     // Leaderboard
-    echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
+    echo ('<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
     echo ('<div class="modalLeaderboard" id="modalLeaderboard">');
     echo ('4090 ala Pube gi');
-    echo ('<input class="xbutton" onclick="ToggleLeaderboard()" type="button" value="x">');
+    echo ('<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">');
     echo ('</div>');
 
     // Set variables and cookies
