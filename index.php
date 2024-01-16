@@ -15,9 +15,7 @@
     echo('<input type="button" name="button" value="Press Me">'); 
 
     //set cookies
-    setcookie("TestCookie", $value);
-
-    // setcookie(string $currentpoints, string $value = "187", array $options = []): bool   
+    setcookie("currentpoints", string $value = "187", array $options = []): bool   
     // setcookie(string $maxpoints, string $value = "150", array $options = []): bool   
     // setcookie(string $resets, string $value = "7", array $options = []): bool   
     ?>
