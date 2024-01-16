@@ -19,8 +19,8 @@
     $resets=0;
     //set cookies
     setcookie("currentpoints", $currentpoints); 
-    setcookie("maxpoints", string $maxpoints);   
-    setcookie("resets", string $resets);
+    setcookie("maxpoints", $maxpoints);   
+    setcookie("resets", $resets);
     ?>
 </body>
 </html>
