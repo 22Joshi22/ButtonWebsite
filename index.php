@@ -17,6 +17,7 @@
     <!--Scripts-->
     <script>
         let open = false;
+        let clicks = 0;
         function ToggleLeaderboard() {
             var modalLeaderboard = document.getElementById("modalLeaderboard");
             if (open) {
@@ -27,16 +28,20 @@
                 open = true;
             }
         }
+        function Click() {
+            var Clickbutton = document.getElementById("ClickButton");
+            clicks++;
+            Clickbutton.setAttribute("value", clicks+"");
+        }
     </script>
     <?php
     //echo the button
     //Main Button
-    echo ('<input class="button" type="button" name="button" value="Press Me">');
-
+    echo ('<input class="button" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
     //Leaderboard
     echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
     //Set variables
-    echo ('<div id="modalLeaderboard">TEST</div>');
+    echo ('<div class="modalLeaderboard" id="modalLeaderboard">TEST</div>');
     $currentpoints = 0;
     $maxpoints = 0;
     $resets = 0;
