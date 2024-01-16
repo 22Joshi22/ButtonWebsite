@@ -42,9 +42,12 @@ html,body{
   border-radius: 20px;
   padding: 8rem;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
   }
 
-  textarea.scoreboard{
-  resize:none;
+  .scoreboard{
+  position: absolute;
+  color: white;
+  top: 30% ;
+  left: 48.5% ;
   }

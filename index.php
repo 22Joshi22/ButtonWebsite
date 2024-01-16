@@ -23,6 +23,7 @@
         let maxclicks = 0;
         var chance = 0.99;
         let baseChance = 0.3; // Initial chance
+        var resets = 0;
 
         function ToggleLeaderboard() {
             var modalLeaderboard = document.getElementById("modalLeaderboard");
@@ -43,18 +44,18 @@
                 if (clicks > maxclicks) {
                     maxclicks = clicks;
                     chance *= 1.2; // Increase the chance for reset by 20%
-                    updateScoreboard(); // Update the scoreboard dynamically
                 }
             } else {
                 // User DED
                 if (clicks > maxclicks) {
                     maxclicks = clicks;
-                    updateScoreboard(); // Update the scoreboard dynamically
                 }
                 clicks = 0;
                 chance = baseChance; // Reset the chance
+                resets++;
+                
             }
-
+            updateScoreboard(); // Update the scoreboard dynamically
             Clickbutton.setAttribute("value", clicks + "");
         }
 
@@ -66,8 +67,8 @@
 
         function updateScoreboard() {
             // Update the scoreboard
-            var scoreboardTextarea = document.getElementsByName("scoreboard")[0];
-            scoreboardTextarea.textContent = 'Highscore: ' + maxclicks + '\nResets: ' + resets;
+            var scoreboardTextarea = document.getElementById("scoreboard");
+            scoreboardTextarea.innerHTML   = 'Highscore: '+maxclicks+'&#013; &#010;<br>Resets: '+resets;
         }
     </script>
 
@@ -78,7 +79,7 @@
     $resets = 0;
 
     // Echo the Scoreboard
-    echo '<textarea class="scoreboard" name="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;Resets: ' . $resets . '</textarea>';
+    echo '<p class="scoreboard" id="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;<br>Resets: ' . $resets . '</p>';
     // Echo the button and leaderboard
     // Main Button
     echo '<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">';
