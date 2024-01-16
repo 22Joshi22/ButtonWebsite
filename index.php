@@ -8,7 +8,7 @@
 <body>
     
     <?php
-    echo('<style>'include syle.css'</style>')
+    echo('<style>'include style.css'</style>')
     echo('<input type="button" name="button" value="Press Me">'); 
     setcookie(string $currentpoints, string $value = "187", array $options = []): bool   
     setcookie(string $maxpoints, string $value = "150", array $options = []): bool   
