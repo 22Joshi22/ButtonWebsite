@@ -7,9 +7,21 @@ html,body{
   background-position: center center;
   background-size: cover;
   background-color: transparent;
+
 }
 input{
   position: relative;
   top: 50%;
   left: 50%;
 }
+
+.modalLeaderboard{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;}

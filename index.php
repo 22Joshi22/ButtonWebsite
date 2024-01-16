@@ -14,7 +14,13 @@
     <!--Scripts-->
     <script>
         function showLeaderboard() {
-            
+            var modalLeaderboard = document.getElemtById("modalLeaderboard");
+            modalLeaderboard.style.display= "block";
+        }
+
+        function closeLeaderboard() {
+            var modalLeaderboard = document.getElemtById("modalLeaderboard");
+            modalLeaderboard.style.display= "none";
         }
     </script>
     <?php
@@ -23,7 +29,7 @@
     echo('<input class="button" type="button" name="button" value="Press Me">'); 
 
     //Leaderboard
-    echo('<input type="button" name="leaderboard" value="Leaderboard">'); 
+    echo('<input type="button" name="leaderboard" value="Leaderboard" onclick="showLeaderboard()>'); 
     //Set variables
     $currentpoints=0;
     $maxpoints=0;
