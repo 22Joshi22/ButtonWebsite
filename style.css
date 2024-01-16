@@ -45,6 +45,6 @@ html,body{
   transform: translate(-50%, -50%);
   }
 
-textarea.scoreboard{
-resize:none;
-}
+  textarea.scoreboard{
+  resize:none;
+  }
