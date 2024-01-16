@@ -20,6 +20,9 @@
         // Button and leaderboard toggling functions
         let open = false;
         let clicks = 0;
+        let maxclicks = 0;
+        let chance = 0.99;
+        let baseChance = 0.3; // Initial chance
 
         function ToggleLeaderboard() {
             var modalLeaderboard = document.getElementById("modalLeaderboard");
@@ -34,18 +37,39 @@
 
         function Click() {
             var Clickbutton = document.getElementById("ClickButton");
-            clicks++;
+            if (chance() === 'alive') {
+                // User Alive
+                clicks++;
+                if (clicks > maxclicks) {
+                    maxclicks = clicks;
+                    chance *= 1.2; // Increase the chance for reset by 20%
+                }
+            } else {
+                // User DED
+                if (clicks > maxclicks) {
+                    maxclicks = clicks;
+                }
+                clicks = 0;
+                chance = baseChance; // Reset the chance
+            }
+
             Clickbutton.setAttribute("value", clicks + "");
+        }
+
+        function chance() {
+            // Calculate chance based on the parable
+            let currentChance = baseChance * 0.2;
+            return (Math.random() < currentChance) ? 'alive' : 'ded' ;
         }
     </script>
 
     <?php
     // Echo the button and leaderboard
-        // Main Button
+    // Main Button
     echo ('<input class="button" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
-        // Leaderboard
+    // Leaderboard
     echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
-    echo ('<div class="modalLeaderboard" id="modalLeaderboard">TEST</div>');
+    echo ('<div class="modalLeaderboard" id="modalLeaderboard">4090 ala Pube gi</div>');
 
     // Set variables and cookies
     $currentpoints = 0;
