@@ -21,10 +21,11 @@
             var modalLeaderboard = document.getElementById("modalLeaderboard");
             if (open) {
                 modalLeaderboard.style.display = "none";
+                open = false;
             } else {
                 modalLeaderboard.style.display = "block";
+                open = true;
             }
-        open != open;
         }
     </script>
     <?php
@@ -35,6 +36,7 @@
     //Leaderboard
     echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
     //Set variables
+    echo ('<div id="modalLeaderboard">TEST</div>');
     $currentpoints = 0;
     $maxpoints = 0;
     $resets = 0;
