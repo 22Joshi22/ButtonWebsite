@@ -43,11 +43,13 @@
                 if (clicks > maxclicks) {
                     maxclicks = clicks;
                     chance *= 1.2; // Increase the chance for reset by 20%
+                    updateScoreboard(); // Update the scoreboard dynamically
                 }
             } else {
                 // User DED
                 if (clicks > maxclicks) {
                     maxclicks = clicks;
+                    updateScoreboard(); // Update the scoreboard dynamically
                 }
                 clicks = 0;
                 chance = baseChance; // Reset the chance
@@ -59,28 +61,35 @@
         function chanceFunc() {
             // Calculate chance based on the parable
             let currentChance = baseChance * 0.2;
-            return (Math.random() < currentChance) ? 'dead' : 'alive' ;
+            return (Math.random() < currentChance) ? 'dead' : 'alive';
+        }
+
+        function updateScoreboard() {
+            // Update the scoreboard
+            var scoreboardTextarea = document.getElementsByName("scoreboard")[0];
+            scoreboardTextarea.textContent = 'Highscore: ' + maxclicks + '\nResets: ' + resets;
         }
     </script>
 
     <?php
-    // Echo the Scoreboard
-    echo ('<textarea class="scoreboard" name="scoreboard">TestValue</textarea>');
-    // Echo the button and leaderboard
-    // Main Button
-    echo ('<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
-    // Leaderboard
-    echo ('<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
-    echo ('<div class="modalLeaderboard" id="modalLeaderboard">');
-    echo ('4090 ala Pube gi');
-    echo ('<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">');
-    echo ('</div>');
-
-    // Set variables and cookies
+    // Set initial values for cookies
     $currentpoints = 0;
     $maxpoints = 0;
     $resets = 0;
 
+    // Echo the Scoreboard
+    echo '<textarea class="scoreboard" name="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;Resets: ' . $resets . '</textarea>';
+    // Echo the button and leaderboard
+    // Main Button
+    echo '<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">';
+    // Leaderboard
+    echo '<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">';
+    echo '<div class="modalLeaderboard" id="modalLeaderboard">';
+    echo '4090 ala Pube gi';
+    echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
+    echo '</div>';
+
+    // Set cookies
     setcookie("currentpoints", $currentpoints);
     setcookie("maxpoints", $maxpoints);
     setcookie("resets", $resets);
