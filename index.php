@@ -12,7 +12,11 @@
     
     <?php
     //echo the button
+    //Main Button
     echo('<input type="button" name="button" value="Press Me">'); 
+
+    //Leaderboard
+    echo('<input type="button" name="leaderboard" value="Push to Leaderboard">'); 
     //Set variables
     $currentpoints=0;
     $maxpoints=0;
