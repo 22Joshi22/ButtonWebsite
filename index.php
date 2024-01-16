@@ -21,7 +21,7 @@
         let open = false;
         let clicks = 0;
         let maxclicks = 0;
-        let chance = 0.99;
+        var chance = 0.99;
         let baseChance = 0.3; // Initial chance
 
         function ToggleLeaderboard() {
@@ -37,7 +37,7 @@
 
         function Click() {
             var Clickbutton = document.getElementById("ClickButton");
-            if (chance() === 'alive') {
+            if (chanceFunc() === 'alive') {
                 // User Alive
                 clicks++;
                 if (clicks > maxclicks) {
@@ -56,7 +56,7 @@
             Clickbutton.setAttribute("value", clicks + "");
         }
 
-        function chance() {
+        function chanceFunc() {
             // Calculate chance based on the parable
             let currentChance = baseChance * 0.2;
             return (Math.random() < currentChance) ? 'alive' : 'ded' ;
