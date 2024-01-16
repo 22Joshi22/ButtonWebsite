@@ -32,7 +32,7 @@
     echo ('<input class="button" type="button" name="button" value="Press Me">');
 
     //Leaderboard
-    echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="showLeaderboard()">');
+    echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
     //Set variables
     $currentpoints = 0;
     $maxpoints = 0;
