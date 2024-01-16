@@ -65,7 +65,7 @@
 
     <?php
     // Echo the Scoreboard
-    echo ('<textarea name="scoreboard">TestValue</textarea>');
+    echo ('<textarea class="scoreboard" name="scoreboard">TestValue</textarea>');
     // Echo the button and leaderboard
     // Main Button
     echo ('<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
