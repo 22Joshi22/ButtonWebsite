@@ -69,7 +69,10 @@
     echo ('<input class="button" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">');
     // Leaderboard
     echo ('<input type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">');
-    echo ('<div class="modalLeaderboard" id="modalLeaderboard">4090 ala Pube gi</div>');
+    echo ('<div class="modalLeaderboard" id="modalLeaderboard">');
+    echo ('4090 ala Pube gi');
+    echo ('<input class="xbutton" onclick="ToggleLeaderboard()" type="button" value="x">');
+    echo ('</div>');
 
     // Set variables and cookies
     $currentpoints = 0;
