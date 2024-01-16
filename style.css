@@ -1,4 +1,6 @@
-html{
+html,body{
+  width: 98%;
+  height: 98%;
   background-image: url("bg.png") !important;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -6,8 +8,8 @@ html{
   background-size: cover;
   background-color: transparent;
 }
-button {
-  position: absolute;
+input{
+  position: relative;
   top: 50%;
   left: 50%;
 }

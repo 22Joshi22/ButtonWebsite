@@ -20,7 +20,7 @@
     <?php
     //echo the button
     //Main Button
-    echo('<input type="button" name="button" value="Press Me">'); 
+    echo('<input class="button" type="button" name="button" value="Press Me">'); 
 
     //Leaderboard
     echo('<input type="button" name="leaderboard" value="Leaderboard">'); 
