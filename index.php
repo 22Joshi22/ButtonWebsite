@@ -89,11 +89,11 @@
     echo '4090 ala Pube gi';
     echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
     echo '</div>';
-
     // Set cookies
     setcookie("currentpoints", $currentpoints);
     setcookie("maxpoints", $maxpoints);
     setcookie("resets", $resets);
+
     ?>
 </body>
 
