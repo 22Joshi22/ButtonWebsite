@@ -61,7 +61,7 @@
 
         function chanceFunc() {
             // Calculate chance based on the parable
-            let currentChance = baseChance * 0.3;
+            let currentChance = baseChance * 0.4;
             return (Math.random() < currentChance) ? 'dead' : 'alive';
         }
 
