@@ -20,6 +20,7 @@
         // Button and leaderboard toggling functions
         let open = false;
         let clicks = 0;
+        var totalclicks = 0;
         let maxclicks = 0;
         var chance = 0.99;
         let baseChance = 0.3; // Initial chance
@@ -55,6 +56,7 @@
                 resets++;
                 
             }
+            totalclicks++;
             updateScoreboard(); // Update the scoreboard dynamically
             Clickbutton.setAttribute("value", clicks + "");
         }
@@ -68,7 +70,7 @@
         function updateScoreboard() {
             // Update the scoreboard
             var scoreboardTextarea = document.getElementById("scoreboard");
-            scoreboardTextarea.innerHTML   = 'Highscore: '+maxclicks+'&#013; &#010;<br>Resets: '+resets;
+            scoreboardTextarea.innerHTML   = 'Highscore: '+maxclicks+'&#013; &#010;<br>Resets: '+resets+ "<br> Total Clicks: " + totalclicks;
         }
     </script>
 
@@ -79,7 +81,7 @@
     $resets = 0;
 
     // Echo the Scoreboard
-    echo '<p class="scoreboard" id="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;<br>Resets: ' . $resets . '</p>';
+    echo '<p class="scoreboard" id="scoreboard">Highscore: ' . $maxpoints . '&#013; &#010;<br>Resets: ' . $resets . '<br> Total Clicks: 0</p>';
     // Echo the button and leaderboard
     // Main Button
     echo '<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">';
