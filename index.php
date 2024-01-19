@@ -76,10 +76,10 @@
             }
             totalclicks++;
             updateScoreboard(); // Update the scoreboard dynamically
-            updateCookies();
+            updateCookies(); // Update the cookies dynamically
             Clickbutton.setAttribute("value", clicks + "");
         }
-        function updateCookies(){
+        function updateCookies(){ 
             document.cookie = "totalclicks="+totalclicks; 
             document.cookie = "maxclicks="+maxclicks; 
             document.cookie = "resets="+resets;
