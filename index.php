@@ -41,7 +41,7 @@
             document.cookie = "resets=0";
         }
 
-        if(document.cookie != 0){
+        if(document.cookie != ""){
             totalclicks = getCookieValue("totalclicks");
             maxclicks = getCookieValue("maxclicks");
             resets = getCookieValue("resets");
