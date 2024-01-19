@@ -34,16 +34,19 @@
         let baseChance = 0.3; // Initial chance
         var resets = 0;
         console.log(document.cookie)
+        
         if(document.cookie == ""){
             document.cookie = "totalclicks=0"; 
             document.cookie = "maxclicks=0"; 
             document.cookie = "resets=0";
         }
+
         if(document.cookie != 0){
             totalclicks = getCookieValue("totalclicks");
             maxclicks = getCookieValue("maxclicks");
             resets = getCookieValue("resets");
         }
+
         function ToggleLeaderboard() {
             var modalLeaderboard = document.getElementById("modalLeaderboard");
             if (open) {
@@ -55,6 +58,8 @@
             }
         }
 
+        // Click function 
+        //Calculate the chance for reset
         function Click() {
             var Clickbutton = document.getElementById("ClickButton");
             if (chanceFunc() === 'alive') {
@@ -109,12 +114,8 @@
     echo '4090 ala Pube gi';        
     echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
     echo '</div>';
-
-
-
-
+    // Update Scoreboard
     echo '<script type="text/javascript">updateScoreboard()</script>';
-
     ?>
 </body>
 
