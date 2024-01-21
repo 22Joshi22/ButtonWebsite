@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Button</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="byuntear-sad.ico">
+    <link rel="icon" type="image/x-icon" href="ico.ico">
     <!-- Styles -->
     <style>
         <?php include "style.css"; ?>
