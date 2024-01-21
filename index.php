@@ -17,12 +17,11 @@
 <body>
     <!-- Scripts -->
     <script>
-        function getCookieValue(name) 
-        {
-        const regex = new RegExp(`(^| )${name}=([^;]+)`)
-        const match = document.cookie.match(regex)
-        if (match) {
-            return match[2]
+        function getCookieValue(name) {
+            const regex = new RegExp(`(^| )${name}=([^;]+)`)
+            const match = document.cookie.match(regex)
+            if (match) {
+                return match[2]
             }
         }
         // Button and leaderboard toggling functions
@@ -33,15 +32,37 @@
         var chance = 0.99;
         let baseChance = 0.3; // Initial chance
         var resets = 0;
-        console.log(document.cookie)
-        
-        if(document.cookie == ""){
-            document.cookie = "totalclicks=0"; 
-            document.cookie = "maxclicks=0"; 
+
+        function debounce(func, timeout = 300) {
+            let timer;
+            return (...args) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            };
+        }
+        function checkCookies() {
+            if (getCookieValue("totalclicks") == undefined) {
+                return false;
+            }
+
+            if (getCookieValue("maxclicks") == undefined) {
+                return false;
+            }
+
+            if (getCookieValue("resets") == undefined) {
+                return false;
+            }
+
+            return true
+        }
+        if (document.cookie == "" || checkCookies() == false) {
+            document.cookies = "";
+            document.cookie = "totalclicks=0";
+            document.cookie = "maxclicks=0";
             document.cookie = "resets=0";
         }
 
-        if(document.cookie != ""){
+        if (document.cookie != "") {
             totalclicks = getCookieValue("totalclicks");
             maxclicks = getCookieValue("maxclicks");
             resets = getCookieValue("resets");
@@ -77,17 +98,18 @@
                 clicks = 0;
                 chance = baseChance; // Reset the chance
                 resets++;
-                
+
             }
             totalclicks++;
             updateScoreboard(); // Update the scoreboard dynamically
-            updateCookies(); // Update the cookies dynamically
+            saveCookies(); // Update the cookies dynamically
             Clickbutton.setAttribute("value", clicks + "");
         }
-        function updateCookies(){ 
-            document.cookie = "totalclicks="+totalclicks; 
-            document.cookie = "maxclicks="+maxclicks; 
-            document.cookie = "resets="+resets;
+        const saveCookies = debounce( () => updateCookies(),500)
+        function updateCookies() {
+            document.cookie = "totalclicks=" + totalclicks;
+            document.cookie = "maxclicks=" + maxclicks;
+            document.cookie = "resets=" + resets;
         }
         function chanceFunc() {
             // Calculate chance based on the parable
@@ -98,7 +120,7 @@
         function updateScoreboard() {
             // Update the scoreboard
             var scoreboardTextarea = document.getElementById("scoreboard");
-            scoreboardTextarea.innerHTML   = 'Highscore: '+maxclicks+'&#013; &#010;<br>Resets: '+resets+ "<br> Total Clicks: " + totalclicks;
+            scoreboardTextarea.innerHTML = 'Highscore: ' + maxclicks + '&#013; &#010;<br>Resets: ' + resets + "<br> Total Clicks: " + totalclicks;
         }
     </script>
 
@@ -111,7 +133,7 @@
     // Leaderboard
     echo '<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">';
     echo '<div class="modalLeaderboard" id="modalLeaderboard">';
-    echo '4090 ala Pube gi';        
+    echo '4090 ala Pube gi';
     echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
     echo '</div>';
     // Update Scoreboard
