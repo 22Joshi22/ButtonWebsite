@@ -5,9 +5,9 @@ https://home.skidadleskidodle.party/
 Done:
 -The logic behind the button
 -Scoreboard with some stats
+-expanding the Scoreboard with some more stats
 
 ToDo:
--expand the Scoreboard with some more stats
 -Leaderboard
 -Making the Game less cheat able 
 -Making stuff look fancy
