@@ -133,7 +133,7 @@
     echo '<button class="btn-class-name input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">  <span class="back"></span>
     <span class="front" id="idkfuckyou">Click</span></button>';
     // Leaderboard
-    echo '<input class="input.leaderboardbutton" type="button" name="leaderboardbutton" value="Leaderboard" onclick="ToggleLeaderboard()">';
+    echo '<button class="leaderboard" name="leaderboardbutton" value="Leaderboard" onclick="ToggleLeaderboard()">Leaderboard</button>';
     echo '<div class="modalLeaderboard" id="modalLeaderboard">';
     echo 'TBD';
     echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
