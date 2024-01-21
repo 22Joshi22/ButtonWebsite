@@ -83,7 +83,7 @@
         // Click function 
         //Calculate the chance for reset
         function Click() {
-            var Clickbutton = document.getElementById("ClickButton");
+            var Clickbutton = document.getElementById("idkfuckyou");
             if (chanceFunc() === 'alive') {
                 // User Alive
                 clicks++;
@@ -104,7 +104,7 @@
             totalclicks++;
             updateScoreboard(); // Update the scoreboard dynamically
             saveCookies(); // Update the cookies dynamically
-            Clickbutton.setAttribute("value", clicks + "");
+            Clickbutton.innerHTML = clicks;
         }
         const saveCookies = debounce( () => updateCookies(),500)
         function updateCookies() {
@@ -126,11 +126,14 @@
     </script>
 
     <?php
+    echo '<p class="input-text" id="score">1</p>';
+
     // Echo the Scoreboard
     echo '<p class="scoreboard" id="scoreboard">Highscore: 0&#013; &#010;<br>Resets: 0<br> Total Clicks: 0</p>';
     // Echo the button and leaderboard
     // Main Button
-    echo '<input class="input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">';
+    echo '<button class="btn-class-name input" type="button" id="ClickButton" name="button" value="Press Me" onClick="Click()">  <span class="back"></span>
+    <span class="front" id="idkfuckyou">Click</span></button>';
     // Leaderboard
     echo '<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">';
     echo '<div class="modalLeaderboard" id="modalLeaderboard">';
