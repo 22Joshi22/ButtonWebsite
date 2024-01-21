@@ -17,13 +17,6 @@
 <body>
     <!-- Scripts -->
     <script>
-        function getCookieValue(name) {
-            const regex = new RegExp(`(^| )${name}=([^;]+)`)
-            const match = document.cookie.match(regex)
-            if (match) {
-                return match[2]
-            }
-        }
         // Button and leaderboard toggling functions
         let open = false;
         let clicks = 0;
@@ -33,6 +26,13 @@
         let baseChance = 0.3; // Initial chance
         var resets = 0;
 
+        function getCookieValue(name) {
+            const regex = new RegExp(`(^| )${name}=([^;]+)`)
+            const match = document.cookie.match(regex)
+            if (match) {
+                return match[2]
+            }
+        }
         function debounce(func, timeout = 300) {
             let timer;
             return (...args) => {
@@ -55,6 +55,7 @@
 
             return true
         }
+
         if (document.cookie == "" || checkCookies() == false) {
             document.cookies = "";
             document.cookie = "totalclicks=0";
@@ -133,7 +134,7 @@
     // Leaderboard
     echo '<input class="leaderboard" type="button" name="leaderboard" value="Leaderboard" onclick="ToggleLeaderboard()">';
     echo '<div class="modalLeaderboard" id="modalLeaderboard">';
-    echo '4090 ala Pube gi';
+    echo 'TBD';
     echo '<input class="xbutton input" onclick="ToggleLeaderboard()" type="button" value="x">';
     echo '</div>';
     // Update Scoreboard
