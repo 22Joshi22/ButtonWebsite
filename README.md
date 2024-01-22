@@ -11,3 +11,4 @@ ToDo:<br>
 -Leaderboard<br>
 -Making the Game less cheat able <br>
 -Making stuff look fancy<br>
+-Maybe adding a Store where you can spend you total acumulated clicks (or other stats in that matter)<br>
