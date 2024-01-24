@@ -25,6 +25,7 @@
         var chance = 0.99;
         let baseChance = 0.3; // Initial chance
         var resets = 0;
+        var cookieTimeoutDays = 30
 
         function getCookieValue(name) {
             const regex = new RegExp(`(^| )${name}=([^;]+)`)
@@ -55,20 +56,29 @@
 
             return true
         }
-
-        if (document.cookie == "" || checkCookies() == false) {
-            document.cookies = "";
-            document.cookie = "totalclicks=0";
-            document.cookie = "maxclicks=0";
-            document.cookie = "resets=0";
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 
-        if (document.cookie != "") {
-            totalclicks = getCookieValue("totalclicks");
-            maxclicks = getCookieValue("maxclicks");
-            resets = getCookieValue("resets");
+        function updateCookies() {
+            setCookie("totalclicks",totalclicks,cookieTimeoutDays)
+            setCookie("maxclicks",maxclicks,cookieTimeoutDays)
+            setCookie("resets",resets,cookieTimeoutDays)
+        }
+        function chanceFunc() {
+            // Calculate chance based on the parable
+            let currentChance = chance * 0.4;
+            return (Math.random() < currentChance) ? 'dead' : 'alive';
         }
 
+        function updateScoreboard() {
+            // Update the scoreboard
+            var scoreboardTextarea = document.getElementById("scoreboard");
+            scoreboardTextarea.innerHTML = 'Highscore: ' + maxclicks + '&#013; &#010;<br>Resets: ' + resets + "<br> Total Clicks: " + totalclicks;
+        }
         function ToggleLeaderboard() {
             var modalLeaderboard = document.getElementById("modalLeaderboard");
             if (open) {
@@ -79,6 +89,7 @@
                 open = true;
             }
         }
+        const saveCookies = debounce( () => updateCookies(),50)
 
         // Click function 
         //Calculate the chance for reset
@@ -106,22 +117,19 @@
             saveCookies(); // Update the cookies dynamically
             Clickbutton.innerHTML = clicks;
         }
-        const saveCookies = debounce( () => updateCookies(),500)
-        function updateCookies() {
-            document.cookie = "totalclicks=" + totalclicks;
-            document.cookie = "maxclicks=" + maxclicks;
-            document.cookie = "resets=" + resets;
-        }
-        function chanceFunc() {
-            // Calculate chance based on the parable
-            let currentChance = chance * 0.4;
-            return (Math.random() < currentChance) ? 'dead' : 'alive';
+
+
+        if (document.cookie == "" || checkCookies() == false) {
+            setCookie("totalclicks",0,cookieTimeoutDays);
+            setCookie("maxclicks",0,cookieTimeoutDays);
+            setCookie("resets",0,cookieTimeoutDays);
+
         }
 
-        function updateScoreboard() {
-            // Update the scoreboard
-            var scoreboardTextarea = document.getElementById("scoreboard");
-            scoreboardTextarea.innerHTML = 'Highscore: ' + maxclicks + '&#013; &#010;<br>Resets: ' + resets + "<br> Total Clicks: " + totalclicks;
+        if (document.cookie != "") {
+            totalclicks = getCookieValue("totalclicks");
+            maxclicks = getCookieValue("maxclicks");
+            resets = getCookieValue("resets");
         }
     </script>
 
